@@ -7,19 +7,37 @@ import static org.junit.Assert.fail;
 public class CoordinateTest {
 
     @Test
-    public void shouldNotAcceptValuesLowerThanOne() throws Exception {
+    public void shouldNotAcceptValueOnRowLowerThanOne() throws Exception {
         try {
-            Coordinate coordinate = new Coordinate(0, 0);
-            fail("Values should be higher than 0");
+            new Coordinate(0, 1);
+            fail("Value of row should be higher than 0");
         } catch (IllegalArgumentException e) {
         }
     }
 
     @Test
-    public void shouldNotAcceptValuesHigherThanThree() throws Exception {
+    public void shouldNotAcceptValueOnColumnLowerThanOne() throws Exception {
         try {
-            Coordinate coordinate = new Coordinate(4, 4);
-            fail("Values should be lower than 4");
+            new Coordinate(1, 0);
+            fail("Value of column should be higher than 0");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+
+    @Test
+    public void shouldNotAcceptValueOnRowHigherThanThree() throws Exception {
+        try {
+            new Coordinate(4, 1);
+            fail("Value on row should be lower than 4");
+        } catch (IllegalArgumentException e) {
+        }
+    }
+
+    @Test
+    public void shouldNotAcceptValueOnColumnHigherThanThree() throws Exception {
+        try {
+            new Coordinate(1, 4);
+            fail("Value on column should be lower than 4");
         } catch (IllegalArgumentException e) {
         }
     }
