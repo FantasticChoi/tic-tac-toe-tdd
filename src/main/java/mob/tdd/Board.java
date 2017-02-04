@@ -17,7 +17,11 @@ public class Board {
     }
 
     public CellValue[][] getState() {
-        return boardState;
+        CellValue[][] boardStateCopy = new CellValue[3][3];
+        for(int i = 0; i< boardState.length; i++) {
+            boardStateCopy[i] = Arrays.copyOf(boardState[i], boardState[i].length);
+        }
+        return boardStateCopy;
     }
 
     public void changeCellValue(Coordinate coordinate, CellValue cellValue) {

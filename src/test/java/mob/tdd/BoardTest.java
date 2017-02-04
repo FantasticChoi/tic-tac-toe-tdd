@@ -22,14 +22,13 @@ public class BoardTest {
 
     @Test
     public void shouldBeEmptyOnStart() throws Exception {
-        Board.CellValue[][] state = board.getState();
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                assertThat(state[i][j])
-                        .as("Position at [%s][%s] should be EMPTY", i, j)
-                        .isEqualTo(Board.CellValue.EMPTY);
-            }
-        }
+
+        Board.CellValue[][] expectedState = new Board.CellValue[][]{
+                {EMPTY, EMPTY, EMPTY},
+                {EMPTY, EMPTY, EMPTY},
+                {EMPTY, EMPTY, EMPTY}
+        };
+        assertThat(board.getState()).isEqualTo(expectedState);
     }
 
     @Test
@@ -97,5 +96,18 @@ public class BoardTest {
     @Test
     public void shouldNotContainLineOnEmptyBoard() throws Exception {
         assertFalse(board.hasDrawnLineFor(X));
+    }
+
+    @Test
+    public void shouldReturnUnmodifiableState() throws Exception {
+        Board.CellValue[][] state = board.getState();
+        state[0][0] = X;
+
+        Board.CellValue[][] expectedState = new Board.CellValue[][]{
+                {EMPTY, EMPTY, EMPTY},
+                {EMPTY, EMPTY, EMPTY},
+                {EMPTY, EMPTY, EMPTY}
+        };
+        assertThat(board.getState()).isEqualTo(expectedState);
     }
 }
