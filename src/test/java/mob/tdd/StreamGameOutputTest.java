@@ -5,12 +5,12 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ConsoleGameOutputTest {
+public class StreamGameOutputTest {
 
     @Test
     public void shouldFormatAndPrintEmptyBoard() throws Exception {
         FakePrintStream out = new FakePrintStream(System.out);
-        ConsoleGameOutput gameOutput = new ConsoleGameOutput(out);
+        StreamGameOutput gameOutput = new StreamGameOutput(out);
         gameOutput.print(new Classic2DBoard());
 
         assertThat(out.getPrintedString()).isEqualTo(" - - -\n - - -\n - - -\n");
@@ -19,7 +19,7 @@ public class ConsoleGameOutputTest {
     @Test
     public void shouldPrintNotEmptyBoard() throws Exception {
         FakePrintStream out = new FakePrintStream(System.out);
-        ConsoleGameOutput gameOutput = new ConsoleGameOutput(out);
+        StreamGameOutput gameOutput = new StreamGameOutput(out);
         Classic2DBoard board = new Classic2DBoard();
         board.changeCellValue(new Coordinate(1, 1), Classic2DBoard.CellValue.X);
         board.changeCellValue(new Coordinate(2, 2), Classic2DBoard.CellValue.O);

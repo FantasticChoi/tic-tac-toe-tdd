@@ -2,10 +2,10 @@ package mob.tdd;
 
 import java.io.PrintStream;
 
-public class ConsoleGameOutput implements GameOutput {
+public class StreamGameOutput implements GameOutput {
     private PrintStream out;
 
-    public ConsoleGameOutput(PrintStream out) {
+    public StreamGameOutput(PrintStream out) {
         this.out = out;
     }
 
