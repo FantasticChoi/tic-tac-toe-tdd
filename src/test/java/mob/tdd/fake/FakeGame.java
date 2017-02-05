@@ -2,6 +2,7 @@ package mob.tdd.fake;
 
 import lombok.Getter;
 import lombok.Setter;
+import mob.tdd.Board;
 import mob.tdd.Coordinate;
 import mob.tdd.Game;
 import mob.tdd.GameState;
@@ -24,6 +25,11 @@ public class FakeGame implements Game {
     @Override
     public void turn(int row, int column) {
         turns.add(new Coordinate(row, column));
+    }
+
+    @Override
+    public Board getBoard() {
+        return null;
     }
 
     public Coordinate getLastCoordinate() {

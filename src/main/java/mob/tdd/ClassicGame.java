@@ -4,6 +4,7 @@ import lombok.Getter;
 
 public class ClassicGame implements Game {
 
+    @Getter
     private final Board board;
 
     @Getter
