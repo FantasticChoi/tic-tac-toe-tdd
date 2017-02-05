@@ -1,18 +1,17 @@
 package mob.tdd;
 
+import lombok.Getter;
+
 public class ClassicGame implements Game {
 
-    private GameState gameState;
     private final Board board;
 
-    public ClassicGame() {
-        gameState = GameState.X_TURN;
-        board = new Board();
-    }
+    @Getter
+    private GameState state;
 
-    @Override
-    public GameState getState() {
-        return gameState;
+    public ClassicGame() {
+        state = GameState.X_TURN;
+        board = new Board();
     }
 
     @Override
@@ -35,7 +34,7 @@ public class ClassicGame implements Game {
     }
 
     private Board.CellValue calculateCellValue() {
-        if (gameState == GameState.X_TURN) {
+        if (state == GameState.X_TURN) {
             return Board.CellValue.X;
         } else {
             return Board.CellValue.O;
@@ -44,11 +43,11 @@ public class ClassicGame implements Game {
 
     private void changeState() {
         if (isGameDraw()) {
-            gameState = GameState.DRAW;
-        } else if (gameState.equals(GameState.X_TURN)) {
-           gameState = board.hasDrawnLineFor(Board.CellValue.X) ? GameState.X_WON : GameState.O_TURN;
+            state = GameState.DRAW;
+        } else if (state.equals(GameState.X_TURN)) {
+           state = board.hasDrawnLineFor(Board.CellValue.X) ? GameState.X_WON : GameState.O_TURN;
         } else {
-            gameState = board.hasDrawnLineFor(Board.CellValue.O) ? GameState.O_WON : GameState.X_TURN;
+            state = board.hasDrawnLineFor(Board.CellValue.O) ? GameState.O_WON : GameState.X_TURN;
         }
     }
 

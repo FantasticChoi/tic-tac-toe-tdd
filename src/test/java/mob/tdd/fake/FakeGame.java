@@ -1,5 +1,7 @@
 package mob.tdd.fake;
 
+import lombok.Getter;
+import lombok.Setter;
 import mob.tdd.Coordinate;
 import mob.tdd.Game;
 import mob.tdd.GameState;
@@ -10,6 +12,8 @@ import java.util.Queue;
 public class FakeGame implements Game {
 
     private Queue<Coordinate> turns = new LinkedList<>();
+
+    @Getter @Setter
     private GameState gameState = GameState.X_TURN;
 
     @Override
@@ -24,9 +28,5 @@ public class FakeGame implements Game {
 
     public Coordinate getLastCoordinate() {
         return turns.poll();
-    }
-
-    public void setGameState(GameState gameState) {
-        this.gameState = gameState;
     }
 }
