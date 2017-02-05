@@ -1,6 +1,6 @@
 package mob.tdd;
 
-public class ClassicGame {
+public class ClassicGame implements Game {
 
     private GameState gameState;
     private final Board board;
@@ -10,10 +10,12 @@ public class ClassicGame {
         board = new Board();
     }
 
+    @Override
     public GameState getState() {
         return gameState;
     }
 
+    @Override
     public void turn(int row, int column) {
         board.changeCellValue(new Coordinate(row, column), calculateCellValue());
         changeState();

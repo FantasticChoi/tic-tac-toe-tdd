@@ -2,6 +2,7 @@ package mob.tdd;
 
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
 public class CoordinateTest {
@@ -40,5 +41,12 @@ public class CoordinateTest {
             fail("Value on column should be lower than 4");
         } catch (IllegalArgumentException e) {
         }
+    }
+
+    @Test
+    public void shouldImplementEqualsAndHashCode() throws Exception {
+        Coordinate coordinate = new Coordinate(1, 3);
+        assertThat(coordinate).isEqualTo(new Coordinate(1, 3));
+        assertThat(coordinate.hashCode()).isEqualTo(new Coordinate(1, 3).hashCode());
     }
 }
