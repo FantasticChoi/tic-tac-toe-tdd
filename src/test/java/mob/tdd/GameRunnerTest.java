@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ConsoleCommandReaderTest {
+public class GameRunnerTest {
 
     @Test
     public void shouldParseAndSendCommandToGame() throws Exception {
@@ -16,7 +16,7 @@ public class ConsoleCommandReaderTest {
         FakeBufferedReader br = new FakeBufferedReader(inputStreamReader);
         br.addCommandToQueue("1 1");
         FakeGame game = new FakeGame();
-        new ConsoleCommandReader(game, br);
+        new GameRunner(game, br);
 
         assertThat(game.getLastCoordinate()).isEqualTo(new Coordinate(1, 1));
     }
@@ -29,7 +29,7 @@ public class ConsoleCommandReaderTest {
         br.addCommandToQueue("1 1");
         br.addCommandToQueue("2 2");
         FakeGame game = new FakeGame();
-        new ConsoleCommandReader(game, br);
+        new GameRunner(game, br);
 
         assertThat(game.getLastCoordinate()).isEqualTo(new Coordinate(1, 1));
         assertThat(game.getLastCoordinate()).isEqualTo(new Coordinate(2, 2));
@@ -43,7 +43,7 @@ public class ConsoleCommandReaderTest {
         FakeGame game = new FakeGame();
         game.setGameState(GameState.X_WON);
 
-        new ConsoleCommandReader(game, br);
+        new GameRunner(game, br);
 
         assertThat(game.getLastCoordinate()).isNotEqualTo(new Coordinate(1, 1));
     }
@@ -56,7 +56,7 @@ public class ConsoleCommandReaderTest {
         FakeGame game = new FakeGame();
         game.setGameState(GameState.O_WON);
 
-        new ConsoleCommandReader(game, br);
+        new GameRunner(game, br);
 
         assertThat(game.getLastCoordinate()).isNotEqualTo(new Coordinate(1, 1));
     }
@@ -69,7 +69,7 @@ public class ConsoleCommandReaderTest {
         FakeGame game = new FakeGame();
         game.setGameState(GameState.DRAW);
 
-        new ConsoleCommandReader(game, br);
+        new GameRunner(game, br);
 
         assertThat(game.getLastCoordinate()).isNotEqualTo(new Coordinate(1, 1));
     }

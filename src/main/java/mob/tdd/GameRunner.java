@@ -3,12 +3,12 @@ package mob.tdd;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class ConsoleCommandReader {
+public class GameRunner {
 
     private Game game;
     private BufferedReader bufferedReader;
 
-    public ConsoleCommandReader(Game game, BufferedReader bufferedReader) {
+    public GameRunner(Game game, BufferedReader bufferedReader) {
         this.game = game;
         this.bufferedReader = bufferedReader;
         start();
