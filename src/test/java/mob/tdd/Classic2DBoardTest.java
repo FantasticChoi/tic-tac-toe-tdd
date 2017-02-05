@@ -3,13 +3,13 @@ package mob.tdd;
 import org.junit.Before;
 import org.junit.Test;
 
-import static mob.tdd.Board.CellValue.*;
+import static mob.tdd.Classic2DBoard.CellValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class BoardTest {
+public class Classic2DBoardTest {
 
     private static final int BOARD_SIZE = 3;
 
@@ -17,13 +17,13 @@ public class BoardTest {
 
     @Before
     public void createBoard() {
-        board = new Board();
+        board = new Classic2DBoard();
     }
 
     @Test
     public void shouldBeEmptyOnStart() throws Exception {
 
-        Board.CellValue[][] expectedState = new Board.CellValue[][]{
+        Classic2DBoard.CellValue[][] expectedState = new Classic2DBoard.CellValue[][]{
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}
@@ -36,7 +36,7 @@ public class BoardTest {
         final Coordinate coordinate = new Coordinate(1, 1);
         board.changeCellValue(coordinate, X);
 
-        Board.CellValue[][] expectedState = new Board.CellValue[][]{
+        Classic2DBoard.CellValue[][] expectedState = new Classic2DBoard.CellValue[][]{
                 {X, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}
@@ -100,10 +100,10 @@ public class BoardTest {
 
     @Test
     public void shouldReturnUnmodifiableState() throws Exception {
-        Board.CellValue[][] state = board.getState();
+        Classic2DBoard.CellValue[][] state = board.getState();
         state[0][0] = X;
 
-        Board.CellValue[][] expectedState = new Board.CellValue[][]{
+        Classic2DBoard.CellValue[][] expectedState = new Classic2DBoard.CellValue[][]{
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}

@@ -9,9 +9,9 @@ public class ClassicGame implements Game {
     @Getter
     private GameState state;
 
-    public ClassicGame() {
+    public ClassicGame(Board board) {
         state = GameState.X_TURN;
-        board = new Board();
+        this.board = board;
     }
 
     @Override
@@ -22,10 +22,10 @@ public class ClassicGame implements Game {
     }
 
     private boolean isGameDraw() {
-        Board.CellValue[][] state = board.getState();
-        for (Board.CellValue[] cellValues : state) {
-            for (Board.CellValue cellValue : cellValues) {
-                if (cellValue.equals(Board.CellValue.EMPTY)) {
+        Classic2DBoard.CellValue[][] state = board.getState();
+        for (Classic2DBoard.CellValue[] cellValues : state) {
+            for (Classic2DBoard.CellValue cellValue : cellValues) {
+                if (cellValue.equals(Classic2DBoard.CellValue.EMPTY)) {
                     return false;
                 }
             }
@@ -33,11 +33,11 @@ public class ClassicGame implements Game {
         return true;
     }
 
-    private Board.CellValue calculateCellValue() {
+    private Classic2DBoard.CellValue calculateCellValue() {
         if (state == GameState.X_TURN) {
-            return Board.CellValue.X;
+            return Classic2DBoard.CellValue.X;
         } else {
-            return Board.CellValue.O;
+            return Classic2DBoard.CellValue.O;
         }
     }
 
@@ -45,9 +45,9 @@ public class ClassicGame implements Game {
         if (isGameDraw()) {
             state = GameState.DRAW;
         } else if (state.equals(GameState.X_TURN)) {
-           state = board.hasDrawnLineFor(Board.CellValue.X) ? GameState.X_WON : GameState.O_TURN;
+           state = board.hasDrawnLineFor(Classic2DBoard.CellValue.X) ? GameState.X_WON : GameState.O_TURN;
         } else {
-            state = board.hasDrawnLineFor(Board.CellValue.O) ? GameState.O_WON : GameState.X_TURN;
+            state = board.hasDrawnLineFor(Classic2DBoard.CellValue.O) ? GameState.O_WON : GameState.X_TURN;
         }
     }
 

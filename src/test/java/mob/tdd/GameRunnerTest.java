@@ -73,4 +73,8 @@ public class GameRunnerTest {
 
         assertThat(game.getLastCoordinate()).isNotEqualTo(new Coordinate(1, 1));
     }
+
+    @Test
+    public void shouldPrintToUserOutputGameBoardOnStartingGame() throws Exception {
+    }
 }
