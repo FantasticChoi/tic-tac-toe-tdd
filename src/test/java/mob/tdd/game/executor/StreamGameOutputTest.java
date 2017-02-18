@@ -1,6 +1,10 @@
-package mob.tdd;
+package mob.tdd.game.executor;
 
-import mob.tdd.fake.FakePrintStream;
+import mob.tdd.game.CellValue;
+import mob.tdd.game.Classic2DBoard;
+import mob.tdd.game.Coordinate;
+import mob.tdd.game.executor.StreamGameOutput;
+import mob.tdd.game.fake.FakePrintStream;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

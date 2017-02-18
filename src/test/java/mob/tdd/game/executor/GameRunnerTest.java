@@ -1,14 +1,16 @@
-package mob.tdd;
+package mob.tdd.game.executor;
 
-import mob.tdd.fake.FakeBufferedReader;
-import mob.tdd.fake.FakeGame;
-import mob.tdd.fake.FakeGameOutput;
+import mob.tdd.game.*;
+import mob.tdd.game.executor.GameRunner;
+import mob.tdd.game.fake.FakeBufferedReader;
+import mob.tdd.game.fake.FakeGame;
+import mob.tdd.game.fake.FakeGameOutput;
 import org.junit.Test;
 
 import java.io.InputStreamReader;
 
-import static mob.tdd.CellValue.EMPTY;
-import static mob.tdd.CellValue.X;
+import static mob.tdd.game.CellValue.EMPTY;
+import static mob.tdd.game.CellValue.X;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameRunnerTest {

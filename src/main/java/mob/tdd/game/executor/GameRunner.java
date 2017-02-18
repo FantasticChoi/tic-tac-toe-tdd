@@ -1,4 +1,7 @@
-package mob.tdd;
+package mob.tdd.game.executor;
+
+import mob.tdd.game.Game;
+import mob.tdd.game.GameState;
 
 import java.io.BufferedReader;
 import java.io.IOException;

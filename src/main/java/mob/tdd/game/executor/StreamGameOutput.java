@@ -1,4 +1,7 @@
-package mob.tdd;
+package mob.tdd.game.executor;
+
+import mob.tdd.game.Board;
+import mob.tdd.game.CellValue;
 
 import java.io.PrintStream;
 

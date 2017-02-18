@@ -1,4 +1,4 @@
-package mob.tdd;
+package mob.tdd.game;
 
 public interface Board {
     CellValue[][] getState();

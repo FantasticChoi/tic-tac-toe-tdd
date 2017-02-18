@@ -1,9 +1,9 @@
-package mob.tdd;
+package mob.tdd.game;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static mob.tdd.CellValue.*;
+import static mob.tdd.game.CellValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 import static org.junit.Assert.assertFalse;

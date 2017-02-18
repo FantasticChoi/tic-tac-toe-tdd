@@ -1,8 +1,8 @@
-package mob.tdd.fake;
+package mob.tdd.game.fake;
 
-import mob.tdd.Board;
-import mob.tdd.CellValue;
-import mob.tdd.GameOutput;
+import mob.tdd.game.Board;
+import mob.tdd.game.CellValue;
+import mob.tdd.game.executor.GameOutput;
 
 import java.util.LinkedList;
 import java.util.Queue;

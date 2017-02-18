@@ -1,8 +1,6 @@
-package mob.tdd;
+package mob.tdd.game;
 
 import java.util.Arrays;
-
-import static mob.tdd.CellValue.EMPTY;
 
 public class Classic2DBoard implements Board {
 
@@ -10,9 +8,9 @@ public class Classic2DBoard implements Board {
 
     public Classic2DBoard() {
         boardState = new CellValue[][] {
-                {EMPTY, EMPTY, EMPTY},
-                {EMPTY, EMPTY, EMPTY},
-                {EMPTY, EMPTY, EMPTY}
+                {CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY},
+                {CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY},
+                {CellValue.EMPTY, CellValue.EMPTY, CellValue.EMPTY}
         };
     }
 

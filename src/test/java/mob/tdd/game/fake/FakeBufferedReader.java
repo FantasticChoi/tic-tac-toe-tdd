@@ -1,4 +1,4 @@
-package mob.tdd.fake;
+package mob.tdd.game.fake;
 
 import java.io.BufferedReader;
 import java.io.IOException;

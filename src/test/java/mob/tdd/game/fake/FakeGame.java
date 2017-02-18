@@ -1,11 +1,11 @@
-package mob.tdd.fake;
+package mob.tdd.game.fake;
 
 import lombok.Getter;
 import lombok.Setter;
-import mob.tdd.Board;
-import mob.tdd.Coordinate;
-import mob.tdd.Game;
-import mob.tdd.GameState;
+import mob.tdd.game.Board;
+import mob.tdd.game.Coordinate;
+import mob.tdd.game.Game;
+import mob.tdd.game.GameState;
 
 import java.util.LinkedList;
 import java.util.Queue;

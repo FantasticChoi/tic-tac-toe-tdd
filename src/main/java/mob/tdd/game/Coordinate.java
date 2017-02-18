@@ -1,4 +1,4 @@
-package mob.tdd;
+package mob.tdd.game;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -1,9 +1,9 @@
-package mob.tdd;
+package mob.tdd.game;
 
 import org.junit.Test;
 
-import static mob.tdd.CellValue.O;
-import static mob.tdd.CellValue.X;
+import static mob.tdd.game.CellValue.O;
+import static mob.tdd.game.CellValue.X;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WildGameTest {
