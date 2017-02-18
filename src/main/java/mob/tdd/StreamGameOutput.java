@@ -11,10 +11,10 @@ public class StreamGameOutput implements GameOutput {
 
     @Override
     public void print(Board board) {
-        Classic2DBoard.CellValue[][] state = board.getState();
+        CellValue[][] state = board.getState();
         StringBuilder sb = new StringBuilder();
-        for (Classic2DBoard.CellValue[] row : state) {
-            for (Classic2DBoard.CellValue cell : row) {
+        for (CellValue[] row : state) {
+            for (CellValue cell : row) {
                 sb.append(" ");
                 sb.append(getCellValueToPrint(cell));
             }
@@ -23,7 +23,7 @@ public class StreamGameOutput implements GameOutput {
         out.print(sb.toString());
     }
 
-    private char getCellValueToPrint(Classic2DBoard.CellValue cellValue) {
+    private char getCellValueToPrint(CellValue cellValue) {
         switch (cellValue) {
             case X: return 'X';
             case O: return 'O';

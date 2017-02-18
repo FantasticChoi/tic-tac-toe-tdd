@@ -2,7 +2,7 @@ package mob.tdd;
 
 import java.util.Arrays;
 
-import static mob.tdd.Classic2DBoard.CellValue.EMPTY;
+import static mob.tdd.CellValue.EMPTY;
 
 public class Classic2DBoard implements Board {
 
@@ -76,9 +76,4 @@ public class Classic2DBoard implements Board {
         }
         return false;
     }
-
-    public enum CellValue {
-        X, O, EMPTY
-    }
-
 }

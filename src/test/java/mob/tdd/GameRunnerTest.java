@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import java.io.InputStreamReader;
 
-import static mob.tdd.Classic2DBoard.CellValue.EMPTY;
-import static mob.tdd.Classic2DBoard.CellValue.X;
+import static mob.tdd.CellValue.EMPTY;
+import static mob.tdd.CellValue.X;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameRunnerTest {
@@ -85,7 +85,7 @@ public class GameRunnerTest {
         ClassicGame game = new ClassicGame(new Classic2DBoard());
         new GameRunner(game, br, gameOutput);
 
-        Classic2DBoard.CellValue[][] emptyBoard = {
+        CellValue[][] emptyBoard = {
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}
@@ -103,21 +103,21 @@ public class GameRunnerTest {
         ClassicGame game = new ClassicGame(new Classic2DBoard());
         new GameRunner(game, br, gameOutput);
 
-        Classic2DBoard.CellValue[][] lastState = {
+        CellValue[][] lastState = {
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}
         };
-        Classic2DBoard.CellValue[][] lastPrintedBoard = gameOutput.getNextPrintedBoard();
+        CellValue[][] lastPrintedBoard = gameOutput.getNextPrintedBoard();
         assertThat(lastPrintedBoard).isNotNull();
         assertThat(lastPrintedBoard).isEqualTo(lastState);
 
-        Classic2DBoard.CellValue[][] firstState = {
+        CellValue[][] firstState = {
                 {X, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}
         };
-        Classic2DBoard.CellValue[][] firstPrintedBoard = gameOutput.getNextPrintedBoard();
+        CellValue[][] firstPrintedBoard = gameOutput.getNextPrintedBoard();
         assertThat(firstPrintedBoard).isNotNull();
         assertThat(firstPrintedBoard).isEqualTo(firstState);
     }

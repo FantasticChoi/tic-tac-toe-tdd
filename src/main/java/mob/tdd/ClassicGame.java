@@ -19,14 +19,13 @@ public class ClassicGame implements Game {
     public void turn(int row, int column) {
         board.changeCellValue(new Coordinate(row, column), calculateCellValue());
         changeState();
-
     }
 
     private boolean isGameDraw() {
-        Classic2DBoard.CellValue[][] state = board.getState();
-        for (Classic2DBoard.CellValue[] cellValues : state) {
-            for (Classic2DBoard.CellValue cellValue : cellValues) {
-                if (cellValue.equals(Classic2DBoard.CellValue.EMPTY)) {
+        CellValue[][] state = board.getState();
+        for (CellValue[] cellValues : state) {
+            for (CellValue cellValue : cellValues) {
+                if (cellValue.equals(CellValue.EMPTY)) {
                     return false;
                 }
             }
@@ -34,11 +33,11 @@ public class ClassicGame implements Game {
         return true;
     }
 
-    private Classic2DBoard.CellValue calculateCellValue() {
+    private CellValue calculateCellValue() {
         if (state == GameState.X_TURN) {
-            return Classic2DBoard.CellValue.X;
+            return CellValue.X;
         } else {
-            return Classic2DBoard.CellValue.O;
+            return CellValue.O;
         }
     }
 
@@ -46,9 +45,9 @@ public class ClassicGame implements Game {
         if (isGameDraw()) {
             state = GameState.DRAW;
         } else if (state.equals(GameState.X_TURN)) {
-           state = board.hasDrawnLineFor(Classic2DBoard.CellValue.X) ? GameState.X_WON : GameState.O_TURN;
+           state = board.hasDrawnLineFor(CellValue.X) ? GameState.X_WON : GameState.O_TURN;
         } else {
-            state = board.hasDrawnLineFor(Classic2DBoard.CellValue.O) ? GameState.O_WON : GameState.X_TURN;
+            state = board.hasDrawnLineFor(CellValue.O) ? GameState.O_WON : GameState.X_TURN;
         }
     }
 

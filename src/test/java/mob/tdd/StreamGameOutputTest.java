@@ -21,8 +21,8 @@ public class StreamGameOutputTest {
         FakePrintStream out = new FakePrintStream(System.out);
         StreamGameOutput gameOutput = new StreamGameOutput(out);
         Classic2DBoard board = new Classic2DBoard();
-        board.changeCellValue(new Coordinate(1, 1), Classic2DBoard.CellValue.X);
-        board.changeCellValue(new Coordinate(2, 2), Classic2DBoard.CellValue.O);
+        board.changeCellValue(new Coordinate(1, 1), CellValue.X);
+        board.changeCellValue(new Coordinate(2, 2), CellValue.O);
         gameOutput.print(board);
 
         assertThat(out.getPrintedString()).isEqualTo(" X - -\n - O -\n - - -\n");

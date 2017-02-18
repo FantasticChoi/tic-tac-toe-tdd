@@ -2,7 +2,8 @@ package mob.tdd;
 
 import org.junit.Test;
 
-import static mob.tdd.Classic2DBoard.CellValue.*;
+import static mob.tdd.CellValue.O;
+import static mob.tdd.CellValue.X;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WildGameTest {
@@ -48,5 +49,22 @@ public class WildGameTest {
         wildGame.turn(2, 2);
 
         assertThat(wildGame.getState()).isEqualTo(GameState.O_WON);
+    }
+
+    @Test
+    public void shouldHaveADrawStateIfNoWinnerAndNoEmptyCellsRemains() throws Exception {
+        Classic2DBoard classic2DBoard = new Classic2DBoard();
+        classic2DBoard.changeCellValue(new Coordinate(1, 1), X);
+        classic2DBoard.changeCellValue(new Coordinate(1, 2), X);
+        classic2DBoard.changeCellValue(new Coordinate(1, 3), O);
+        classic2DBoard.changeCellValue(new Coordinate(2, 1), O);
+        classic2DBoard.changeCellValue(new Coordinate(2, 2), O);
+        classic2DBoard.changeCellValue(new Coordinate(2, 3), X);
+        classic2DBoard.changeCellValue(new Coordinate(3, 1), X);
+        classic2DBoard.changeCellValue(new Coordinate(3, 2), O);
+
+        WildGame wildGame = new WildGame(classic2DBoard);
+        wildGame.turn(3, 3);
+        assertThat(wildGame.getState()).isEqualTo(GameState.DRAW);
     }
 }

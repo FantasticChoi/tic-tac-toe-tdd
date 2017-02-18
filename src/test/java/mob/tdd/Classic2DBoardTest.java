@@ -3,7 +3,7 @@ package mob.tdd;
 import org.junit.Before;
 import org.junit.Test;
 
-import static mob.tdd.Classic2DBoard.CellValue.*;
+import static mob.tdd.CellValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 import static org.junit.Assert.assertFalse;
@@ -23,7 +23,7 @@ public class Classic2DBoardTest {
     @Test
     public void shouldBeEmptyOnStart() throws Exception {
 
-        Classic2DBoard.CellValue[][] expectedState = new Classic2DBoard.CellValue[][]{
+        CellValue[][] expectedState = new CellValue[][]{
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}
@@ -36,7 +36,7 @@ public class Classic2DBoardTest {
         final Coordinate coordinate = new Coordinate(1, 1);
         board.changeCellValue(coordinate, X);
 
-        Classic2DBoard.CellValue[][] expectedState = new Classic2DBoard.CellValue[][]{
+        CellValue[][] expectedState = new CellValue[][]{
                 {X, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}
@@ -100,10 +100,10 @@ public class Classic2DBoardTest {
 
     @Test
     public void shouldReturnUnmodifiableState() throws Exception {
-        Classic2DBoard.CellValue[][] state = board.getState();
+        CellValue[][] state = board.getState();
         state[0][0] = X;
 
-        Classic2DBoard.CellValue[][] expectedState = new Classic2DBoard.CellValue[][]{
+        CellValue[][] expectedState = new CellValue[][]{
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY},
                 {EMPTY, EMPTY, EMPTY}
