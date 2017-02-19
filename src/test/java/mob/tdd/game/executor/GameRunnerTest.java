@@ -83,7 +83,7 @@ public class GameRunnerTest {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         FakeBufferedReader br = new FakeBufferedReader(inputStreamReader);
         FakeGameOutput gameOutput = new FakeGameOutput();
-        ClassicGame game = new ClassicGame(new Classic2DBoard(), new ClassicRules());
+        SimpleGame game = new SimpleGame(new Classic2DBoard(), new ClassicRules());
         new GameRunner(game, br, gameOutput);
 
         CellValue[][] emptyBoard = {
@@ -101,7 +101,7 @@ public class GameRunnerTest {
         br.addCommandToQueue("1 1");
 
         FakeGameOutput gameOutput = new FakeGameOutput();
-        ClassicGame game = new ClassicGame(new Classic2DBoard(), new ClassicRules());
+        SimpleGame game = new SimpleGame(new Classic2DBoard(), new ClassicRules());
         new GameRunner(game, br, gameOutput);
 
         CellValue[][] lastState = {

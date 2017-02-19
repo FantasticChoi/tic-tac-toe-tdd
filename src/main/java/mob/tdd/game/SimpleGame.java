@@ -2,7 +2,7 @@ package mob.tdd.game;
 
 import lombok.Getter;
 
-public class ClassicGame implements Game {
+public class SimpleGame implements Game {
 
     @Getter
     private final Board board;
@@ -12,7 +12,7 @@ public class ClassicGame implements Game {
 
     private final Rules rules;
 
-    public ClassicGame(Board board, Rules rules) {
+    public SimpleGame(Board board, Rules rules) {
         state = GameState.X_TURN;
         this.board = board;
         this.rules = rules;

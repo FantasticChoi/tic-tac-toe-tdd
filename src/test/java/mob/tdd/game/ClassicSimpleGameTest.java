@@ -5,13 +5,13 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ClassicGameTest {
+public class ClassicSimpleGameTest {
 
-    private ClassicGame game;
+    private SimpleGame game;
 
     @Before
     public void createGame() {
-        game = new ClassicGame(new Classic2DBoard(), new ClassicRules());
+        game = new SimpleGame(new Classic2DBoard(), new ClassicRules());
     }
 
     @Test

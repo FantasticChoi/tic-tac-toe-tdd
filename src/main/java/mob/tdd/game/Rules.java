@@ -1,5 +1,5 @@
 package mob.tdd.game;
 
 public interface Rules {
-    GameState getGameState(GameState gameState, Board board);
+    GameState getGameState(GameState currentState, Board board);
 }
