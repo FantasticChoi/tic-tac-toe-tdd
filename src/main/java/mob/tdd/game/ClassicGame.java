@@ -10,27 +10,18 @@ public class ClassicGame implements Game {
     @Getter
     private GameState state;
 
-    public ClassicGame(Board board) {
+    private final Rules rules;
+
+    public ClassicGame(Board board, Rules rules) {
         state = GameState.X_TURN;
         this.board = board;
+        this.rules = rules;
     }
 
     @Override
     public void turn(int row, int column) {
         board.changeCellValue(new Coordinate(row, column), calculateCellValue());
-        changeState();
-    }
-
-    private boolean isGameDraw() {
-        CellValue[][] state = board.getState();
-        for (CellValue[] cellValues : state) {
-            for (CellValue cellValue : cellValues) {
-                if (cellValue.equals(CellValue.EMPTY)) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        state = rules.getGameState(state, board);
     }
 
     private CellValue calculateCellValue() {
@@ -40,19 +31,4 @@ public class ClassicGame implements Game {
             return CellValue.O;
         }
     }
-
-    private void changeState() {
-        if (board.hasDrawnLineFor(CellValue.X)) {
-            state = GameState.X_WON;
-        } else if (board.hasDrawnLineFor(CellValue.O)) {
-            state = GameState.O_WON;
-        } else if (isGameDraw()) {
-            state = GameState.DRAW;
-        } else if (state.equals(GameState.X_TURN)) {
-           state = GameState.O_TURN;
-        } else {
-            state = GameState.X_TURN;
-        }
-    }
-
 }

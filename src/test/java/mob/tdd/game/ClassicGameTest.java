@@ -11,7 +11,7 @@ public class ClassicGameTest {
 
     @Before
     public void createGame() {
-        game = new ClassicGame(new Classic2DBoard());
+        game = new ClassicGame(new Classic2DBoard(), new ClassicRules());
     }
 
     @Test
