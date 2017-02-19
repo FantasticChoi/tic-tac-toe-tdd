@@ -42,12 +42,16 @@ public class ClassicGame implements Game {
     }
 
     private void changeState() {
-        if (isGameDraw()) {
+        if (board.hasDrawnLineFor(CellValue.X)) {
+            state = GameState.X_WON;
+        } else if (board.hasDrawnLineFor(CellValue.O)) {
+            state = GameState.O_WON;
+        } else if (isGameDraw()) {
             state = GameState.DRAW;
         } else if (state.equals(GameState.X_TURN)) {
-           state = board.hasDrawnLineFor(CellValue.X) ? GameState.X_WON : GameState.O_TURN;
+           state = GameState.O_TURN;
         } else {
-            state = board.hasDrawnLineFor(CellValue.O) ? GameState.O_WON : GameState.X_TURN;
+            state = GameState.X_TURN;
         }
     }
 

@@ -6,7 +6,8 @@ import mob.tdd.game.CellValue;
 import java.io.PrintStream;
 
 public class StreamGameOutput implements GameOutput {
-    private PrintStream out;
+
+    private final PrintStream out;
 
     public StreamGameOutput(PrintStream out) {
         this.out = out;

@@ -1,10 +1,10 @@
 package mob.tdd.game.executor;
 
+import lombok.SneakyThrows;
 import mob.tdd.game.Game;
 import mob.tdd.game.GameState;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 
 public class GameRunner {
 
@@ -19,20 +19,17 @@ public class GameRunner {
         start();
     }
 
+    @SneakyThrows
     private void start() {
         gameOutput.print(game.getBoard());
         while (!isGameFinished()) {
-            try {
-                String line = bufferedReader.readLine();
-                if (line == null) {
-                    return;
-                }
-                String[] split = line.split(" ");
-                game.turn(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
-                gameOutput.print(game.getBoard());
-            } catch (IOException e) {
-                e.printStackTrace();
+            String line = bufferedReader.readLine();
+            if (line == null) {
+                return;
             }
+            String[] split = line.split(" ");
+            game.turn(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
+            gameOutput.print(game.getBoard());
         }
     }
 

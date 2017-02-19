@@ -50,4 +50,19 @@ public class ClassicGameTest {
 
         assertThat(game.getState()).isEqualTo(GameState.X_WON);
     }
+
+    @Test
+    public void shoulDetectWinnerWhenLineIsDrawOnLastPossibleMove() throws Exception {
+        game.turn(2, 2);
+        game.turn(1, 1);
+        game.turn(1, 2);
+        game.turn(3, 1);
+        game.turn(2, 1);
+        game.turn(2, 3);
+        game.turn(1, 3);
+        game.turn(3, 3);
+        game.turn(3, 2);
+
+        assertThat(game.getState()).isEqualTo(GameState.X_WON);
+    }
 }
