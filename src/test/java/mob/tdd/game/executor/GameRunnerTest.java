@@ -1,7 +1,6 @@
 package mob.tdd.game.executor;
 
 import mob.tdd.game.*;
-import mob.tdd.game.executor.GameRunner;
 import mob.tdd.game.fake.FakeBufferedReader;
 import mob.tdd.game.fake.FakeGame;
 import mob.tdd.game.fake.FakeGameOutput;
@@ -84,7 +83,7 @@ public class GameRunnerTest {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         FakeBufferedReader br = new FakeBufferedReader(inputStreamReader);
         FakeGameOutput gameOutput = new FakeGameOutput();
-        ClassicGame game = new ClassicGame(new Classic2DBoard());
+        SimpleGame game = new SimpleGame(new Classic2DBoard(), new ClassicRules());
         new GameRunner(game, br, gameOutput);
 
         CellValue[][] emptyBoard = {
@@ -102,7 +101,7 @@ public class GameRunnerTest {
         br.addCommandToQueue("1 1");
 
         FakeGameOutput gameOutput = new FakeGameOutput();
-        ClassicGame game = new ClassicGame(new Classic2DBoard());
+        SimpleGame game = new SimpleGame(new Classic2DBoard(), new ClassicRules());
         new GameRunner(game, br, gameOutput);
 
         CellValue[][] lastState = {

@@ -6,17 +6,17 @@ import static mob.tdd.game.CellValue.O;
 import static mob.tdd.game.CellValue.X;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class WildGameTest {
+public class WildSimpleGameTest {
 
     @Test
     public void shouldBeXTurnOnEmptyBoard() throws Exception {
-        WildGame wildGame = new WildGame(new Classic2DBoard());
+        Game wildGame = new SimpleGame(new Classic2DBoard(), new WildRules());
         assertThat(wildGame.getState()).isEqualTo(GameState.X_TURN);
     }
 
     @Test
     public void shouldChangePlayerAfterEachTurn() throws Exception {
-        WildGame wildGame = new WildGame(new Classic2DBoard());
+        Game wildGame = new SimpleGame(new Classic2DBoard(), new WildRules());
         wildGame.turn(1, 1);
 
         assertThat(wildGame.getState()).isEqualTo(GameState.O_TURN);
@@ -32,7 +32,7 @@ public class WildGameTest {
         classic2DBoard.changeCellValue(new Coordinate(1, 2), O);
         classic2DBoard.changeCellValue(new Coordinate(1, 3), O);
 
-        WildGame wildGame = new WildGame(classic2DBoard);
+        Game wildGame = new SimpleGame(classic2DBoard, new WildRules());
         wildGame.turn(2, 2);
 
         assertThat(wildGame.getState()).isEqualTo(GameState.X_WON);
@@ -45,7 +45,7 @@ public class WildGameTest {
         classic2DBoard.changeCellValue(new Coordinate(1, 2), X);
         classic2DBoard.changeCellValue(new Coordinate(1, 3), X);
 
-        WildGame wildGame = new WildGame(classic2DBoard);
+        Game wildGame = new SimpleGame(classic2DBoard, new WildRules());
         wildGame.turn(2, 2);
 
         assertThat(wildGame.getState()).isEqualTo(GameState.O_WON);
@@ -63,7 +63,7 @@ public class WildGameTest {
         classic2DBoard.changeCellValue(new Coordinate(3, 1), X);
         classic2DBoard.changeCellValue(new Coordinate(3, 2), O);
 
-        WildGame wildGame = new WildGame(classic2DBoard);
+        Game wildGame = new SimpleGame(classic2DBoard, new WildRules());
         wildGame.turn(3, 3);
         assertThat(wildGame.getState()).isEqualTo(GameState.DRAW);
     }
