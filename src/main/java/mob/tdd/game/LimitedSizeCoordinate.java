@@ -26,10 +26,10 @@ public class LimitedSizeCoordinate implements Coordinate {
 
     private void validateValues(Coordinate coordinate) {
         if (coordinate.getRow() < 1 || coordinate.getRow() > maxSize) {
-            throw new IllegalArgumentException("Accepted values from row are not in range of [1, " + maxSize +"]");
+            throw new IllegalArgumentException("Accepted values of the row are not in range of [1, " + maxSize +"]");
         }
         if (coordinate.getColumn() < 1 || coordinate.getColumn() > maxSize) {
-            throw new IllegalArgumentException("Accepted values from column are not in range of [1, " + maxSize +"]");
+            throw new IllegalArgumentException("Accepted values of the column are not in range of [1, " + maxSize +"]");
         }
     }
 

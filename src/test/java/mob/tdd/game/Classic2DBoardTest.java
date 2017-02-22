@@ -5,13 +5,12 @@ import org.junit.Test;
 
 import static mob.tdd.game.CellValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.fail;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class Classic2DBoardTest {
-
-    private static final int BOARD_SIZE = 3;
 
     private Board board;
 
@@ -109,5 +108,11 @@ public class Classic2DBoardTest {
                 {EMPTY, EMPTY, EMPTY}
         };
         assertThat(board.getState()).isEqualTo(expectedState);
+    }
+
+    @Test
+    public void shouldNotAcceptValuesThatAreBiggerThatBoard() throws Exception {
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> board.changeCellValue(new SimpleCoordinate(42, 42), X));
     }
 }

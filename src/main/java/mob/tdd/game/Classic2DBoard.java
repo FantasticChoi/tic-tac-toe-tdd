@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class Classic2DBoard implements Board {
 
+    private static final int BOARD_SIZE = 3;
+
     private final CellValue[][] boardState;
 
     public Classic2DBoard() {
@@ -16,7 +18,7 @@ public class Classic2DBoard implements Board {
 
     @Override
     public CellValue[][] getState() {
-        CellValue[][] boardStateCopy = new CellValue[3][3];
+        CellValue[][] boardStateCopy = new CellValue[BOARD_SIZE][BOARD_SIZE];
         for(int i = 0; i< boardState.length; i++) {
             boardStateCopy[i] = Arrays.copyOf(boardState[i], boardState[i].length);
         }
@@ -25,10 +27,11 @@ public class Classic2DBoard implements Board {
 
     @Override
     public void changeCellValue(Coordinate coordinate, CellValue cellValue) {
-        final int row = coordinate.getRow() - 1;
-        final int column = coordinate.getColumn() - 1;
+        final Coordinate validCoordinate = new LimitedSizeCoordinate(coordinate, BOARD_SIZE);
+        final int row = validCoordinate.getRow() - 1;
+        final int column = validCoordinate.getColumn() - 1;
         if (!boardState[row][column].equals(CellValue.EMPTY)) {
-            throw new IllegalArgumentException("You should not be able to override not EMPTY cell");
+            throw new IllegalArgumentException("You are not be able to override not EMPTY cell");
         }
         boardState[row][column] = cellValue;
     }
