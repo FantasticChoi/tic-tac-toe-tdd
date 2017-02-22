@@ -43,7 +43,7 @@ public class Classic2DBoard implements Board {
     }
 
     private boolean checkDiagonalLines(CellValue[] line) {
-        CellValue[] diagonalLine = new CellValue[3];
+        CellValue[] diagonalLine = new CellValue[BOARD_SIZE];
         int j = 0;
         for(int i = 0; i < boardState.length; i++) {
             diagonalLine[i] = boardState[i][j++];
@@ -51,7 +51,7 @@ public class Classic2DBoard implements Board {
         if(Arrays.equals(diagonalLine, line)) {
             return true;
         } else {
-            diagonalLine = new CellValue[3];
+            diagonalLine = new CellValue[BOARD_SIZE];
             j = 2;
             for(int i = 0; i < boardState.length; i++) {
                 diagonalLine[i] = boardState[i][j--];
@@ -61,14 +61,14 @@ public class Classic2DBoard implements Board {
     }
 
     private boolean checkOrthogonalLines(CellValue[] line) {
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < BOARD_SIZE; j++) {
             CellValue[] row = boardState[j];
             if(Arrays.equals(row, line)) {
                 return true;
             }
 
-            CellValue[] column = new CellValue[3];
-            for (int i = 0; i < 3; i++) {
+            CellValue[] column = new CellValue[BOARD_SIZE];
+            for (int i = 0; i < BOARD_SIZE; i++) {
                 column[i] = boardState[i][j];
             }
             if (Arrays.equals(column, line)) {
