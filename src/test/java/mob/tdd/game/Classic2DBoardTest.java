@@ -33,7 +33,7 @@ public class Classic2DBoardTest {
 
     @Test
     public void shouldChangeCellValueOnTurn() throws Exception {
-        final Coordinate coordinate = new Coordinate(1, 1);
+        final Coordinate coordinate = new SimpleCoordinate(1, 1);
         board.changeCellValue(coordinate, X);
 
         CellValue[][] expectedState = new CellValue[][]{
@@ -47,7 +47,7 @@ public class Classic2DBoardTest {
 
     @Test
     public void shouldNotOverrideNotEmptyCell() throws Exception {
-        final Coordinate coordinate = new Coordinate(1, 1);
+        final Coordinate coordinate = new SimpleCoordinate(1, 1);
         board.changeCellValue(coordinate, X);
         try {
             board.changeCellValue(coordinate, O);
@@ -58,27 +58,27 @@ public class Classic2DBoardTest {
 
     @Test
     public void shouldContainHorizontalLineOnBoard() throws Exception {
-        board.changeCellValue(new Coordinate(1, 1), X);
-        board.changeCellValue(new Coordinate(1, 2), X);
-        board.changeCellValue(new Coordinate(1, 3), X);
+        board.changeCellValue(new SimpleCoordinate(1, 1), X);
+        board.changeCellValue(new SimpleCoordinate(1, 2), X);
+        board.changeCellValue(new SimpleCoordinate(1, 3), X);
 
         assertTrue(board.hasDrawnLineFor(X));
     }
 
     @Test
     public void shouldContainVerticalLineOnBoard() throws Exception {
-        board.changeCellValue(new Coordinate(1, 1), O);
-        board.changeCellValue(new Coordinate(2, 1), O);
-        board.changeCellValue(new Coordinate(3, 1), O);
+        board.changeCellValue(new SimpleCoordinate(1, 1), O);
+        board.changeCellValue(new SimpleCoordinate(2, 1), O);
+        board.changeCellValue(new SimpleCoordinate(3, 1), O);
 
         assertTrue(board.hasDrawnLineFor(O));
     }
 
     @Test
     public void shouldContainLeftToRightDiagonalLineOnBoard() throws Exception {
-        board.changeCellValue(new Coordinate(1, 1), O);
-        board.changeCellValue(new Coordinate(2, 2), O);
-        board.changeCellValue(new Coordinate(3, 3), O);
+        board.changeCellValue(new SimpleCoordinate(1, 1), O);
+        board.changeCellValue(new SimpleCoordinate(2, 2), O);
+        board.changeCellValue(new SimpleCoordinate(3, 3), O);
 
         assertTrue(board.hasDrawnLineFor(O));
     }
@@ -86,9 +86,9 @@ public class Classic2DBoardTest {
 
     @Test
     public void shouldContainRightToLeftDiagonalLineOnBoard() throws Exception {
-        board.changeCellValue(new Coordinate(1, 3), O);
-        board.changeCellValue(new Coordinate(2, 2), O);
-        board.changeCellValue(new Coordinate(3, 1), O);
+        board.changeCellValue(new SimpleCoordinate(1, 3), O);
+        board.changeCellValue(new SimpleCoordinate(2, 2), O);
+        board.changeCellValue(new SimpleCoordinate(3, 1), O);
 
         assertTrue(board.hasDrawnLineFor(O));
     }

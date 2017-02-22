@@ -30,15 +30,15 @@ public class WildRulesTest {
     @Test
     public void shouldDetectDrawGame() throws Exception {
         Board board = new Classic2DBoard();
-        board.changeCellValue(new Coordinate(1, 1), CellValue.O);
-        board.changeCellValue(new Coordinate(1, 2), CellValue.O);
-        board.changeCellValue(new Coordinate(1, 3), CellValue.X);
-        board.changeCellValue(new Coordinate(2, 1), CellValue.X);
-        board.changeCellValue(new Coordinate(2, 2), CellValue.X);
-        board.changeCellValue(new Coordinate(2, 3), CellValue.O);
-        board.changeCellValue(new Coordinate(3, 1), CellValue.O);
-        board.changeCellValue(new Coordinate(3, 2), CellValue.X);
-        board.changeCellValue(new Coordinate(3, 3), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(1, 1), CellValue.O);
+        board.changeCellValue(new SimpleCoordinate(1, 2), CellValue.O);
+        board.changeCellValue(new SimpleCoordinate(1, 3), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(2, 1), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(2, 2), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(2, 3), CellValue.O);
+        board.changeCellValue(new SimpleCoordinate(3, 1), CellValue.O);
+        board.changeCellValue(new SimpleCoordinate(3, 2), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(3, 3), CellValue.X);
 
         GameState gameState = rules.getGameState(GameState.O_TURN, board);
         assertThat(gameState).isEqualTo(GameState.DRAW);
@@ -47,9 +47,9 @@ public class WildRulesTest {
     @Test
     public void shouldDetectXAsWinner() throws Exception {
         Board board = new Classic2DBoard();
-        board.changeCellValue(new Coordinate(1, 1), CellValue.O);
-        board.changeCellValue(new Coordinate(1, 2), CellValue.O);
-        board.changeCellValue(new Coordinate(1, 3), CellValue.O);
+        board.changeCellValue(new SimpleCoordinate(1, 1), CellValue.O);
+        board.changeCellValue(new SimpleCoordinate(1, 2), CellValue.O);
+        board.changeCellValue(new SimpleCoordinate(1, 3), CellValue.O);
 
         GameState gameState = rules.getGameState(GameState.O_TURN, board);
         assertThat(gameState).isEqualTo(GameState.X_WON);
@@ -58,9 +58,9 @@ public class WildRulesTest {
     @Test
     public void shouldDetectOAsWinner() throws Exception {
         Board board = new Classic2DBoard();
-        board.changeCellValue(new Coordinate(1, 1), CellValue.X);
-        board.changeCellValue(new Coordinate(1, 2), CellValue.X);
-        board.changeCellValue(new Coordinate(1, 3), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(1, 1), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(1, 2), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(1, 3), CellValue.X);
 
         GameState gameState = rules.getGameState(GameState.O_TURN, board);
         assertThat(gameState).isEqualTo(GameState.O_WON);

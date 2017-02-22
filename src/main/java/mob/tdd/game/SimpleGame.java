@@ -20,7 +20,7 @@ public class SimpleGame implements Game {
 
     @Override
     public void turn(int row, int column) {
-        board.changeCellValue(new Coordinate(row, column), calculateCellValue());
+        board.changeCellValue(new SimpleCoordinate(row, column), calculateCellValue());
         state = rules.getGameState(state, board);
     }
 

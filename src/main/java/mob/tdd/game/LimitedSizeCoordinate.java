@@ -3,12 +3,12 @@ package mob.tdd.game;
 import lombok.ToString;
 
 @ToString
-public class ValidSizeCoordinate implements Coordinate {
+public class LimitedSizeCoordinate implements Coordinate {
 
     private final Coordinate coordinate;
     private final int maxSize;
 
-    public ValidSizeCoordinate(Coordinate coordinate, int maxSize) {
+    public LimitedSizeCoordinate(Coordinate coordinate, int maxSize) {
         this.maxSize = maxSize;
         validateValues(coordinate);
         this.coordinate = coordinate;
@@ -38,7 +38,7 @@ public class ValidSizeCoordinate implements Coordinate {
         if (this == o) return true;
         if (o == null) return false;
         if (getClass() == o.getClass()) {
-            ValidSizeCoordinate that = (ValidSizeCoordinate) o;
+            LimitedSizeCoordinate that = (LimitedSizeCoordinate) o;
             return coordinate.equals(that.coordinate);
         } else {
             return coordinate.equals(o);
