@@ -2,8 +2,7 @@ package mob.tdd.game.executor;
 
 import mob.tdd.game.CellValue;
 import mob.tdd.game.Classic2DBoard;
-import mob.tdd.game.Coordinate;
-import mob.tdd.game.executor.StreamGameOutput;
+import mob.tdd.game.SimpleCoordinate;
 import mob.tdd.game.fake.FakePrintStream;
 import org.junit.Test;
 
@@ -25,8 +24,8 @@ public class StreamGameOutputTest {
         FakePrintStream out = new FakePrintStream(System.out);
         StreamGameOutput gameOutput = new StreamGameOutput(out);
         Classic2DBoard board = new Classic2DBoard();
-        board.changeCellValue(new Coordinate(1, 1), CellValue.X);
-        board.changeCellValue(new Coordinate(2, 2), CellValue.O);
+        board.changeCellValue(new SimpleCoordinate(1, 1), CellValue.X);
+        board.changeCellValue(new SimpleCoordinate(2, 2), CellValue.O);
         gameOutput.print(board);
 
         assertThat(out.getPrintedString()).isEqualTo(" X - -\n - O -\n - - -\n");

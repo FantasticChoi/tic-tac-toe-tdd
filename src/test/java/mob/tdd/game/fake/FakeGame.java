@@ -2,10 +2,7 @@ package mob.tdd.game.fake;
 
 import lombok.Getter;
 import lombok.Setter;
-import mob.tdd.game.Board;
-import mob.tdd.game.Coordinate;
-import mob.tdd.game.Game;
-import mob.tdd.game.GameState;
+import mob.tdd.game.*;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -24,7 +21,7 @@ public class FakeGame implements Game {
 
     @Override
     public void turn(int row, int column) {
-        turns.add(new Coordinate(row, column));
+        turns.add(new SimpleCoordinate(row, column));
     }
 
     @Override

@@ -22,7 +22,7 @@ public class GameRunnerTest {
         FakeGame game = new FakeGame();
         new GameRunner(game, br, new FakeGameOutput());
 
-        assertThat(game.getLastCoordinate()).isEqualTo(new Coordinate(1, 1));
+        assertThat(game.getLastCoordinate()).isEqualTo(new SimpleCoordinate(1, 1));
     }
 
 
@@ -35,8 +35,8 @@ public class GameRunnerTest {
         FakeGame game = new FakeGame();
         new GameRunner(game, br, new FakeGameOutput());
 
-        assertThat(game.getLastCoordinate()).isEqualTo(new Coordinate(1, 1));
-        assertThat(game.getLastCoordinate()).isEqualTo(new Coordinate(2, 2));
+        assertThat(game.getLastCoordinate()).isEqualTo(new SimpleCoordinate(1, 1));
+        assertThat(game.getLastCoordinate()).isEqualTo(new SimpleCoordinate(2, 2));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class GameRunnerTest {
 
         new GameRunner(game, br, new FakeGameOutput());
 
-        assertThat(game.getLastCoordinate()).isNotEqualTo(new Coordinate(1, 1));
+        assertThat(game.getLastCoordinate()).isNotEqualTo(new SimpleCoordinate(1, 1));
     }
 
     @Test
@@ -62,7 +62,7 @@ public class GameRunnerTest {
 
         new GameRunner(game, br, new FakeGameOutput());
 
-        assertThat(game.getLastCoordinate()).isNotEqualTo(new Coordinate(1, 1));
+        assertThat(game.getLastCoordinate()).isNotEqualTo(new SimpleCoordinate(1, 1));
     }
 
     @Test
@@ -75,7 +75,7 @@ public class GameRunnerTest {
 
         new GameRunner(game, br, new FakeGameOutput());
 
-        assertThat(game.getLastCoordinate()).isNotEqualTo(new Coordinate(1, 1));
+        assertThat(game.getLastCoordinate()).isNotEqualTo(new SimpleCoordinate(1, 1));
     }
 
     @Test
